@@ -24,7 +24,7 @@ Since all these info is under a portal he can't access it.
     * Store this link in file/json
 
 
-### script 2 - courses_info.py
+### script 2 - courses_desc.py
 
 * Create a master html file that would store all info
 * for each line in saved file/json
@@ -32,8 +32,23 @@ Since all these info is under a portal he can't access it.
     Parse html and extract relevant data
     Write this data to master html file
 
+### script3 - download_info.py
+
+* Extract all relevant info at IVLE
+* Dump it into a master html file
+
 
 ### Convert html to pdf
 
 Finally, convert master html file to pdf via pandoc.
 
+
+### TODO
+
+* Generate master PDF!!
+* FInd a way to merge module information and slides - Should be doable..!!
+* On the IVLE portal, information does not exist for some of the modules,check with seniors
+* If information for some course does not exist, fetch it from course catalogue? - Would be tough anyway.
+* Merge timetable and corresponding course information - Tough!!
+* Code Refactoring and stramlining..|| Make it more efficient..!!
+* Discuss potential network issues with Shadab, from NUS.
