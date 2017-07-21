@@ -13,7 +13,7 @@ Since all these info is under a portal he can't access it.
 
 ## Workflow
 
-### script 1 - all_courses.py
+### script 1 - course_list.py
 
 * request.get desired page - https://mysoc.nus.edu.sg/~postgd/LecturePreview.html and sent coockies
 * Parse html, get following link
@@ -45,10 +45,11 @@ Finally, convert master html file to pdf via pandoc.
 
 ### TODO
 
+* Need a better name for the project :p
 * Generate master PDF!!
 * FInd a way to merge module information and slides - Should be doable..!!
 * On the IVLE portal, information does not exist for some of the modules,check with seniors
 * If information for some course does not exist, fetch it from course catalogue? - Would be tough anyway.
 * Merge timetable and corresponding course information - Tough!!
-* Code Refactoring and stramlining..|| Make it more efficient..!!
+* Code Improvements - Rename variables and scripts so they have more meaning..!!
 * Discuss potential network issues with Shadab, from NUS.
