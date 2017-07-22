@@ -10,10 +10,11 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 cookies = {
     'ASP.NET_SessionId': 'u40bhuancbunufh4lh1i3dwf',
+    'ivle12': 'F7144B1AF5BF6307186A7A46FACC1CB5CF3AAC63BBD63CD512071BE4EBCE8DB9E8FFA23B2A6212B2FA60E5AD2D6FC04ACF907CD569E700A4CA36351BA7F03A6B015CD030361F0125C19B2B8F1FC2F56946EBDB397B39BA10D16B2C7EE10BA20531E2A3AA3E50A6A9D6843C32ADF1A88089B4CA7D91A7068CDB77DCBCD1773D3AC49BD84D27AEFF43990E4D87B44CDCFA8D64388493C571106EC7A6957DB459E330E6C8C9D7455ABE1C515795E59D1129',
     'UserID': 'e0210471',
-    't': '636362806904372117',
+    't': '636363666858059252',
     'TreeState': '',
-    'ivle12': '3AAE24AE25C079DA1A676189547FCC2A0FD280F6586ED7984A4C4AD260F36D24BD6998762CE3D4CD58736F814B5FF26BC56EF3526F68851E15885FC6EFA5AB244F24965532C0BDFADC81907076008D9350F76A2159BC5B84D9E04F04C12888023CEE42E98F698C9A4636DE83D6AD227C12282F4213D5B3FD22146EC5E3AF61995E404CA23D06464CFB8B71679C31DD986544A8D4777A74159C44ADDAE48D4B497B3ED264960AB6B130B844C07BA1174D',
+    'tp': '1758939251',
 }
 
 
@@ -27,8 +28,12 @@ for url in urls:
     html = resp.content
     soup = BeautifulSoup(html, 'html.parser')
     tr = soup.find('tr', {'class': "dataGridCtrl-Item"})
+
     if tr not in (None, ''):
         td = tr.findAll('td')[1]
+    else:
+        continue
+
     a = td.find('a')
     val = str(a)
 
@@ -46,10 +51,14 @@ for url in urls:
             relevant_url = relevant_url + "/" + j[0]
 
     url = relevant_url[:-1]
-
     # All modules have below format on IVLE
-    final_url = "https://ivle.nus.edu.sg" + url
+    final_url_old = "https://ivle.nus.edu.sg" + url
+    final_url_new = "https://ivle.nus.edu.sg/V1" + url
 
     # Store the final urls to a file
-    with open("final_links.txt", "a") as f:
-        f.write(final_url + "\n")
+    with open("final_links_old.txt", "a") as f:
+        f.write(final_url_old + "\n")
+
+    # Store the final urls to a file
+    with open("final_links_new.txt", "a") as f:
+        f.write(final_url_new + "\n")
