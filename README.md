@@ -36,17 +36,18 @@ Eg. - `https://ivle.nus.edu.sg/Module/Student/default.aspx?CourseID=BE4CE92A-0E2
 Finally, convert master html file to pdf via pandoc -
 
 ```bash
-$ pandoc NUS-SOC-Courses.html NUS-SOC-Courses.pdf
+$ pandoc NUS-SOC-Courses.html -o NUS-SOC-Courses.pdf
 ```
 
 
 ### TODO
 
-
-* Not able to convert html to pdf via pandoc, issues with tex file :(
+* Prettify pdf using pandoc -
+    * Use a latex template as used in geeks-pdf
+    * Incorporate TOC
+    * Start each course from new page
 * Find a way to merge course information and respective slides - Should be doable..!!
 * On the IVLE portal, information does not exist for some of the modules,check with seniors.
 * If information for some course does not exist, fetch it from course catalogue? - Would be tough anyway.
-* Merge course schedule with respective course - Tough!!
 * Code Improvements
 
