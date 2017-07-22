@@ -31,7 +31,7 @@ for url in urls:
     data = str(div)
 
     # Dump the data in a master html file
-    with open("first.html", "a") as f:
+    with open("NUS-SOC-Courses.html", "a") as f:
         f.write(data)
 
     time.sleep(10)

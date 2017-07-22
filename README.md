@@ -4,38 +4,32 @@ A project that scrapes all the relevant information for the courses offered for 
 
 ## Why?
 
-There were number of pages that needed to traversed for understanding all course info.
-Like timtable was on a separate page, course description was in a different portal and those too had layers of levels within them. 
+There were number of pages that needed to traversed for going thourgh all course info and stuff. Like timtable was on a separate page, course description was in a different portal and those also had layers of levels within them. 
 
-I want all this info at once place so that I don't have to navigate between multiple chrome tabs and more imortantly I can share the info with Shadab.
-Since all these info is under a portal he can't access it. 
+I wanted all this info at once place so that I don't have to navigate between multiple chrome tabs and more imortantly I can share the info with Shadab for discussion.
 
 
 ## Workflow
 
-### script 1 - course_list.py
+### Run course_list.py
 
-* request.get desired page - https://mysoc.nus.edu.sg/~postgd/LecturePreview.html and sent coockies
-* Parse html, get following link
-    * https://ivle.nus.edu.sg/lms/list_course.aspx?code=CS4211&acadyear=2017/2018
-    * request.get above page, send coockies again
-* Parse html, get following link
-    * https://ivle.nus.edu.sg/Module/Student/default.aspx?CourseID=BE4CE92A-0E2C-4160-91BB-F26912239937&ClickFrom=StuViewBtn
-    * Store this link in file/json
+* Requests desired page - https://mysoc.nus.edu.sg/~postgd/LecturePreview.html that contain master list of courses that'll be offered this sem.
+* Parse html obtained from above and get intermediate IVLE links for each course -  
+Eg. - https://ivle.nus.edu.sg/lms/list_course.aspx?code=CS4211&acadyear=2017/2018
+* Store all these intermediate links in a file - ivle_links.txt
 
 
-### script 2 - courses_desc.py
+### Run courses_desc.py
 
-* Create a master html file that would store all info
-* for each line in saved file/json
-    request.get line and send coockies
-    Parse html and extract relevant data
-    Write this data to master html file
+* Read ivle_links.txt and extract final url for each course that contains all the information.
+Eg. - https://ivle.nus.edu.sg/Module/Student/default.aspx?CourseID=BE4CE92A-0E2C-4160-91BB-F26912239937&ClickFrom=StuViewBtn
+* Store all course final links to a new file - final_links.txt
 
-### script3 - download_info.py
+### Run download_info.py
 
-* Extract all relevant info at IVLE
-* Dump it into a master html file
+* Read all final links from final_links.txt
+* Extract the most sane parent div tag and all its relevant content
+* Dump div tags of all courses to a master html file
 
 
 ### Convert html to pdf
