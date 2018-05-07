@@ -5,7 +5,7 @@ This project scrapes all the relevant information for the courses offered for Ma
 ## Why?
 
 There were number of web pages that needed to be traversed for going through all course information and stuff.
-I wanted all this info at once place so that I don't have to navigate between multiple chrome tabs and more imortantly I can share the info with Shadab for discussion.
+I wanted all this info at once place so that I don't have to navigate between multiple chrome tabs and more imortantly I can share the info with my friends for discussion.
 
 
 ## Workflow
